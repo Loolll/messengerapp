@@ -1,30 +1,30 @@
-#Messenger
+Messenger\
 ----------------------INFO-------------------------------------------------------------------------------------------\
 App was created to provide security in social communications. \
 How works all of algorithms of encryption: \
 Let's imagine real situation, then it will be easier to understand
-1) Creating user token:\
+1) Creating user token: \
 a) Why it needs ? It's your way to authorize in your dialog. User token
 consists of 9 * 5 different characters,
 which makes it difficult to select an encryption token.\
 b) To create token you need username and password, that you can take from admin. BUT
 it's necessary to say that ALL usertokens hasn't any links on your account and it's
-really good.\
+really good. \
 c) And if we still remember about deleting data every hour,
  then this makes the user token almost completely crypto-resistant (more about after)
-2) Creating dialog:\
+2) Creating dialog: \
 Dialog has links on user's tokens and on messages. Also dialog contains
 user's hash sum (it's depends on user's IP, more after). The dialogue itself is 
 announced by token that similar to user token.
-3) Sending message:\
+3) Sending message: \
 a) It's required to use additional app to pre-encrypt your message.
  (This is one of this,
   also you can write your own app with raw requests on server, more after)\
 b) After encryption of your message it'll deliver your message on server.\
 c) On server: 1) Checks your user's token. 2) Calculates your user's hash sum
 via your IP. 3) Encrypts your message again with your hash sum and hash sum of your
-interlocutor.\
-And only then saves in database.\
+interlocutor. \
+And only then saves in database. \
 d)The encryption scheme is similar to this:\
 Raw user message --app--> encrypted user message level 1 --server--(checks user token,
  dialog token and hash sum amount obtained using IP)--> encrypted message level 2 -->
@@ -41,16 +41,16 @@ App provides user interface to interact with server part of messenger and
  as possible and comfortable for everyone.
 
  1) App was written on python and it's required some python libraries and python 
- itself.\
- Installation:\
- a) Please download python from https://python.org\
+ itself. \
+ Installation: \
+ a) Please download python from https://python.org \
  b) Install python with adding it in PATH variable
  с) If you use raw module, open your console and install some libraries: (Write that in console)\
 pip install requests\
 pip install configparser\
 pip install json\
 pip install asyncio\
-(In windows, in another OS it may be different)\
+(In windows, in another OS it may be different)
 2) Set the settings in settings.ini or create this file if doesn't exist.\
 [SERVER]\
 IP =            213.226.112.85  #IP of server nowdays it is 213.226.112.85\
@@ -104,7 +104,7 @@ dialog via dialog create command\
 For ex: Dialog connect mydialog XXXXXXXXX-XXXXXXXXX-XXXXXXXXX-XXXXXXXXX-XXXXXXXXX\
 d) Dialog sendmessage $dialog$ $message...$ | Sends encrypted (check next paragraph)
 message on server. All words after $dialog$ will be delivered. 
-All symbols allowed beside '~' and '^'\
+All symbols allowed beside ~ and ^\
  For ex: 'Dialog sendmessage mydialog hello world | will deliver message 'hello world' on server.\
 e) Dialog setpassword $dialog$ $password$ | It sets password which uses in local encryption
 and decryption (raw message --> encrypted message level 1; described in INFO.3). 
