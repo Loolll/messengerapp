@@ -75,8 +75,8 @@ Provides work with user token.\
 a) UserToken create $name$ | Creates new user token with name $name$. You will use it after
  that to indicate a token. It sends request on server and returns created token,
   USERNAME and PASSWORD are required\
-  For ex: UserToken create mynewtoken\ 
- b) UserToken add $name$ $token$ | This is similar to the previous command, but unlike it is not
+  For ex: UserToken create mynewtoken \ 
+b) UserToken add $name$ $token$ | This is similar to the previous command, but unlike it is not
  sends request on server. It creates token locally. This is necessary if you created a token
 and forgot to save the session or if you created it in another application (or raw request),
 but you need to initialize it. $name$ - name in namespace, $token$ - token\
